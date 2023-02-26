@@ -1,0 +1,124 @@
+<div style="height: 650px;">
+<div style="padding: 20px">
+  <div>
+    <img height="400px" width="250px" [src]="book.imageUrl" [alt]="book.title" />
+  </div>
+  <div>
+    <div style="text-align: left; margin: 5px 0;">
+      <label style="font-weight: 900; font-size: x-large">Title : </label>
+      <span style="font-size: large">{{ book.title }}</span>
+    </div>
+    <div style="text-align: left; margin: 5px 0;">
+      <label *ngIf="book.author" style="font-weight: 900; font-size: x-large"
+        >Author :
+      </label>
+      <span style="font-size: large">{{ book.author }}</span>
+    </div>
+  </div>
+  <div>
+    <button
+      style="margin-right: 5px"
+      nz-button
+      [nzType]="'primary'"
+      (click)="showModal1()"
+    >
+      <span>Practical Advice</span>
+    </button>
+    <nz-modal
+      [(nzVisible)]="isVisible1"
+      nzTitle="The Three Practical Advices"
+      (nzOnCancel)="handleCancel1()"
+      (nzOnOk)="handleOk1()"
+    >
+      <ng-container *nzModalContent>
+        <h3>{{ practicalAdvice }}</h3>
+        <div style="text-align: center">
+          <span style="font-weight: 900" *ngIf="loading1"
+            >Wait a Moment as AI Model Analyses the Book for Practical Advices
+            !</span
+          >
+          <button
+            style="background-color: #ff9100"
+            nz-button
+            nzType="primary"
+            *ngIf="playing"
+            (click)="pause()"
+          >
+            Pause
+          </button>
+          <button
+            style="background-color: #3cba3c"
+            nz-button
+            nzType="primary"
+            *ngIf="playing"
+            (click)="resume()"
+          >
+            Resume
+          </button>
+          <button
+            style="background-color: #c75555"
+            nz-button
+            nzType="primary"
+            *ngIf="playing"
+            (click)="stop()"
+          >
+            Cancel
+          </button>
+        </div>
+      </ng-container>
+    </nz-modal>
+
+    <button nz-button [nzType]="'primary'" (click)="showModal()">
+      <span>Get Summary</span>
+    </button>
+    <nz-modal
+      [(nzVisible)]="isVisible"
+      nzTitle="The Summary"
+      (nzOnCancel)="handleCancel()"
+      (nzOnOk)="handleOk()"
+    >
+      <ng-container *nzModalContent>
+        <div>
+          <span style="font-weight: 900" *ngIf="loading"
+            >Wait a Moment as AI Model Prepares the Summary !</span
+          >
+        </div>
+        <h3>{{ summary }}</h3>
+        <div style="text-align: center">
+          <span *ngIf="loading1"
+            >Wait a Moment as AI Model Analyses the Book for Practical Advices
+            !</span
+          >
+          <button
+            style="background-color: #ff9100"
+            nz-button
+            nzType="primary"
+            *ngIf="playing"
+            (click)="pause()"
+          >
+            Pause
+          </button>
+          <button
+            style="background-color: #3cba3c"
+            nz-button
+            nzType="primary"
+            *ngIf="playing"
+            (click)="resume()"
+          >
+            Resume
+          </button>
+          <button
+            style="background-color: #c75555"
+            nz-button
+            nzType="primary"
+            *ngIf="playing"
+            (click)="stop()"
+          >
+            Cancel
+          </button>
+        </div>
+      </ng-container>
+    </nz-modal>
+  </div>
+</div>
+</div>
