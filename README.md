@@ -1,6 +1,8 @@
-# ChadRizer
+# BookBrew
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
+BookBrew is a web application designed to help people read smarter and more efficiently. The app provides narrated summaries and practical advice from books to give users a quick overview of a book's contents without having to read the entire thing.
+
+The project uses several technologies to create a seamless user experience. It utilizes OpenAI's API to provide narrated book summaries, Google Books API to access information about the books, Ant Design UI for the front-end, and Angular for the back-end.
 
 ## Development server
 
